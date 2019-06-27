@@ -7,7 +7,10 @@
   "scripts": {
     "start": "node server.js",
     "test": "node ace test",
-    "dev": "adonis serve --dev"
+    "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules--config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules--config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "NODE_ENV=development webpack-dev-server --inline --hot",
+    "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules--config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "keywords": [
     "adonisjs",
@@ -28,7 +31,9 @@
     "@adonisjs/session": "^1.0.27",
     "@adonisjs/shield": "^1.0.8"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "laravel-mix": "^4.0.16"
+  },
   "autoload": {
     "App": "./app"
   }
