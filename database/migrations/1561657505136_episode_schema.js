@@ -6,21 +6,11 @@ const Schema = use('Schema')
 class EpisodeSchema extends Schema {
   up () {
     this.create('episodes', (table) => {
-      table.increments()
-            table
-        .integer('podcast_id')
-        .unsigned()
-        .notNullable()
-        .references('id')
-        .inTable('podcasts')
-        .onDelete('cascade')
-      table
-        .integer('user_id')
-        .unsigned()
-        .notNullable()
-      table.string('title').notNullable().unique()
-      table.string('audio').notNullable()
-      table.text('sumary').notNullable()
+      table.increments().integer('podcast_id')
+      table.integer('user_id')
+      table.string('title')
+      table.string('audio')
+      table.string('sumary')
       table.timestamps()
     })
   }

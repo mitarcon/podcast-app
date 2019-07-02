@@ -7,23 +7,12 @@ class PodcastSchema extends Schema {
   up() {
     this.create('podcasts', (table) => {
       table.increments()
-      table
-        .integer('user_id')
-        .unsigned()
-        .notNullable()
-        .references('id')
-        .inTable('users')
-        .onDelete('cascade')
-      table
-        .integer('category_id')
-        .unsigned()
-        .notNullable()
-        .references('id')
-        .inTable('categories')
-      table.string('title').notNullable().unique()
-      table.string('slug').notNullable()
-      table.string('logo').notNullable()
-      table.text('description').notNullable()
+      table.integer('user_id')
+      table.integer('category_id')
+      table.string('title')
+      table.string('slug')
+      table.string('logo')
+      table.string('description')
       table.timestamps()
     })
   }
